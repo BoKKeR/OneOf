@@ -1,12 +1,12 @@
-import { Controller, Get, ValidationPipe, Body } from '@nestjs/common';
+import { Controller, Get, ValidationPipe, Body, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreatePartDto } from './app.dto';
 
-@Controller()
+@Controller('/')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Post('/')
   createPartController(@Body(ValidationPipe) dto: CreatePartDto) {
     return this.appService.createPart(dto);
   }

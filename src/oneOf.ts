@@ -9,9 +9,9 @@ import { ValueArray } from './app.dto';
 
 @ValidatorConstraint({ async: true })
 export class OneOfConstraint implements ValidatorConstraintInterface {
-  validate(activities: any, args: ValidationArguments) {
-    return Array.isArray(activities)
-      ? activities.every(item => ValueArray.includes(item))
+  validate(values: any, args: ValidationArguments) {
+    return Array.isArray(values)
+      ? values.every(item => ValueArray.includes(item))
       : false;
   }
 }

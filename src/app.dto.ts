@@ -1,11 +1,12 @@
 import { OneOf } from './oneOf';
 import { IsBoolean, IsString, ValidateNested } from 'class-validator';
-
+import { Type } from 'class-transformer';
 export class CreatePartDto {
   @ValidateNested()
   @OneOf({
-    message: `activities must be in: values`,
+    message: `values must be in: values`,
   })
+  // @Type(() => StringValues) //uncomenting this line. and commenting out the OneOf allows for submitting StringValues types
   values: BooleanValues[] | StringValues[];
 }
 
